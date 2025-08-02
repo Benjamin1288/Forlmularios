@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Borealis - Formulario Científico</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #e0f7fa 0%, #b3e5fc 100%);
+            font-family: 'Segoe UI', Arial, sans-serif;
+            color: #222;
+            margin: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 40px auto;
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+            padding: 32px 28px 18px 28px;
+        }
+        .logo {
+            display: block;
+            margin: 0 auto 12px auto;
+            width: 80px;
+        }
+        h1 {
+            text-align: center;
+            color: #039be5;
+            font-size: 2.1em;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+        .desc {
+            text-align: center;
+            color: #222;
+            margin-bottom: 22px;
+            font-size: 1.08em;
+        }
+        form label {
+            display: block;
+            margin-top: 18px;
+            font-weight: 500;
+            color: #0277bd;
+        }
+        input[type="text"], input[type="number"], select, textarea {
+            width: 100%;
+            padding: 8px 10px;
+            margin-top: 6px;
+            border: 1.5px solid #b3e5fc;
+            border-radius: 7px;
+            font-size: 1em;
+            background: #f7fbfc;
+            transition: border-color 0.2s;
+        }
+        input[type="text"]:focus, input[type="number"]:focus, select:focus, textarea:focus {
+            border-color: #039be5;
+            outline: none;
+        }
+        textarea {
+            min-height: 60px;
+            resize: vertical;
+        }
+        .exp-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 18px;
+        }
+        .exp-row label {
+            margin-top: 0;
+            flex: 1;
+        }
+        .checkbox-row {
+            margin-top: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .checkbox-row input[type="checkbox"] {
+            accent-color: #039be5;
+            width: 18px;
+            height: 18px;
+        }
+        .btn-row {
+            display: flex;
+            gap: 18px;
+            margin-top: 22px;
+            justify-content: center;
+        }
+        button {
+            background: #039be5;
+            color: #fff;
+            border: none;
+            border-radius: 7px;
+            padding: 10px 28px;
+            font-size: 1em;
+            cursor: pointer;
+            font-weight: 500;
+            box-shadow: 0 2px 8px rgba(3,155,229,0.08);
+            transition: background 0.2s;
+        }
+        button[type="reset"] {
+            background: #b3e5fc;
+            color: #0277bd;
+        }
+        button:hover {
+            background: #0277bd;
+        }
+        button[type="reset"]:hover {
+            background: #81d4fa;
+        }
+        .legal {
+            background: #e3f2fd;
+            border-radius: 10px;
+            padding: 14px 16px;
+            margin-top: 32px;
+            color: #222;
+            font-size: 0.98em;
+            box-shadow: 0 1px 6px rgba(3,155,229,0.07);
+        }
+        .error {
+            color: #d32f2f;
+            font-size: 0.95em;
+            margin-top: 6px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="/Forlmularios/leccion12/Mi formulario/logo.png" alt="Logo Borealis" class="logo">
+        <h1>Borealis</h1>
+        <div class="desc">
+            Bienvenidos a nuestro proyecto Borealis, en este trabajo estarás encargado de navegar un barco hasta la Antártida, barco el cual será proporcionado por Aperture Science.
+        </div>
+        <form id="borealisForm" novalidate>
+            <label for="nombre">Ingresa su nombre:</label>
+            <input type="text" id="nombre" name="nombre" required pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ ]{2,}" placeholder="Nombre completo">
+            <div class="error" id="error-nombre"></div>
+
+            <label for="licencia">Ingresa su licencia de navegante:</label>
+            <input type="text" id="licencia" name="licencia" required pattern="[A-Za-z0-9-]{5,}" placeholder="Licencia de navegante">
+            <div class="error" id="error-licencia"></div>
+
+            <label for="edad">Ingresa su edad (Mayor a 18 años):</label>
+            <input type="number" id="edad" name="edad" required min="18" max="99" placeholder="Edad">
+            <div class="error" id="error-edad"></div>
+
+            <label for="motivo">¿Por qué quieres trabajar para nosotros?</label>
+            <textarea id="motivo" name="motivo" required placeholder="Escribe tu motivo aquí..."></textarea>
+            <div class="error" id="error-motivo"></div>
+
+            <div class="exp-row">
+                <label for="experiencia">Escoge tu nivel de experiencia:</label>
+                <select id="experiencia" name="experiencia" required>
+                    <option value="">Lista</option>
+                    <option value="novato">Novato</option>
+                    <option value="intermedio">Intermedio</option>
+                    <option value="avanzado">Avanzado</option>
+                    <option value="experto">Experto</option>
+                </select>
+            </div>
+            <div class="error" id="error-experiencia"></div>
+
+            <div class="checkbox-row">
+                <input type="checkbox" id="acuerdo" name="acuerdo" required>
+                <label for="acuerdo">Estoy de acuerdo con los requisitos</label>
+            </div>
+            <div class="error" id="error-acuerdo"></div>
+
+            <div class="btn-row">
+                <button type="submit">Enviar</button>
+                <button type="reset">Resetear</button>
+            </div>
+        </form>
+        <div class="legal">
+            <strong>Aperture Science:</strong><br>
+            Aperture Science no se hace cargo o se responsabiliza de choques contra icebergs, si el cargamento sale dañado deberá pagar una multa millonaria y no contamos con defensa alienígena, en caso de emergencia se cree un portal con la portal gun.
+        </div>
+    </div>
+    <script>
+        const form = document.getElementById('borealisForm');
+        form.addEventListener('submit', function(e) {
+            let valid = true;
+            // Nombre
+            const nombre = form.nombre.value.trim();
+            if (!nombre.match(/[A-Za-zÁÉÍÓÚáéíóúÑñ ]{2,}/)) {
+                document.getElementById('error-nombre').textContent = 'Ingrese un nombre válido (solo letras, mínimo 2 caracteres).';
+                valid = false;
+            } else {
+                document.getElementById('error-nombre').textContent = '';
+            }
+            // Licencia
+            const licencia = form.licencia.value.trim();
+            if (!licencia.match(/[A-Za-z0-9-]{5,}/)) {
+                document.getElementById('error-licencia').textContent = 'Licencia inválida (mínimo 5 caracteres, letras y números).';
+                valid = false;
+            } else {
+                document.getElementById('error-licencia').textContent = '';
+            }
+            // Edad
+            const edad = parseInt(form.edad.value);
+            if (isNaN(edad) || edad < 18 || edad > 99) {
+                document.getElementById('error-edad').textContent = 'Debe ser mayor de 18 años y menor de 100.';
+                valid = false;
+            } else {
+                document.getElementById('error-edad').textContent = '';
+            }
+            // Motivo
+            const motivo = form.motivo.value.trim();
+            if (motivo.length < 5) {
+                document.getElementById('error-motivo').textContent = 'Por favor, explica tu motivo (mínimo 5 caracteres).';
+                valid = false;
+            } else {
+                document.getElementById('error-motivo').textContent = '';
+            }
+            // Experiencia
+            if (!form.experiencia.value) {
+                document.getElementById('error-experiencia').textContent = 'Selecciona tu nivel de experiencia.';
+                valid = false;
+            } else {
+                document.getElementById('error-experiencia').textContent = '';
+            }
+            // Acuerdo
+            if (!form.acuerdo.checked) {
+                document.getElementById('error-acuerdo').textContent = 'Debes aceptar los requisitos.';
+                valid = false;
+            } else {
+                document.getElementById('error-acuerdo').textContent = '';
+            }
+            if (!valid) {
+                e.preventDefault();
+            }
+        });
+    </script>
+</body>
+</html>

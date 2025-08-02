@@ -86,14 +86,27 @@
         </div>
         <form action="#">
             <div>
-                <label for="pais">Elige tu nivel de estudio:</label>
-                <select id="pais" name="user_country">
+                <label for="educacion">Elige tu nivel de estudio:</label>
+                <select id="educaion" name="user_education">
                 <option value="">--Por favor, elige una opción--</option>
                 <option value="pr">Primaria</option>
                 <option value="se">Secundaria</option>
-                <option value="ba">Bachillerato</option>
+                <option value="ba" selected>Bachillerato</option>
                 <option value="un">Universidad</option>
-                <option value="po" selected>Postgrado</option>
+                <option value="po">Postgrado</option>
+                </select>
+            </div>
+            <div>
+                <label for="clase">Elige tu clase:</label>
+                <select id="clase" name="user_class">
+                <optgroup label="Practico">
+                <option value="web">Desarrollo Web</option>
+                <option value="grafico">Diseño Gráfico</option>
+                </optgroup>
+                <optgroup label="Teorico">
+                <option value="etica">Etica</option>
+                <option value="desarrollo">Desarrollo humano</option>
+                </optgroup>
                 </select>
             </div>
         </form>
